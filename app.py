@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+from analytics.analysis import getAnalysisResults
 
 app = Flask(__name__)
 app.secret_key = 'YOUR SECRET KEY'
@@ -16,7 +17,8 @@ def index():
 @app.route('/results')
 def results():
     url = request.args['url']
-    return render_template('results.html', url = url)
+    authors, date, text, keywords, summary = getAnalysisResults(url)
+    return render_template('results.html', url = url, authors = authors, date = date, text = text, keywords = keywords, summary = summary)
 
 if __name__ == '__main__':
     app.run(debug=True)
