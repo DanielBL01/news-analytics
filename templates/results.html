@@ -20,19 +20,10 @@
         <div>Site Authors: {{ authors }}</div>
         <div>Publish Date: {{ date }}</div>
         <h2>Text Summarization</h2>
-        <div>Original: {{ text }}</div>
-        <div>Summary: {{ summary }}</div>
+        <div>{{ summary }}</div>
         <h2>Word Frequency</h2>
         <div>Most Common Word: {{ greatest_outcome }}</div>
-        <div>Total Number of Unique Words: {{ total_outcome }}</div>
-        <div>Word Frequency Table</div>
-        <ul>
-            {% for key, value in freqDist %}
-            <li>
-                {{ key }}, {{ value }}
-            </li>
-            {% endfor %}
-        </ul>
+        <div>Total Number of Unique Words excluding Stop Words: {{ total_outcome }}</div>
     </div>
     <div>
         <canvas id="wordFreqBarChart" width="200" height="200"></canvas>

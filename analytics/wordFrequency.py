@@ -4,6 +4,7 @@ from nltk.corpus import stopwords
 from nltk.probability import FreqDist
 
 def filterText(text):
+    """Return the array of words from removing punctuation and stop words from text."""
     # Initialize array object to be returned
     response = []
     # Remove all punctuation 
@@ -20,6 +21,7 @@ def filterText(text):
     return response
 
 def getWordFrequency(text):
+    """Return arrays of keys/values of words with counts over 3, total number of unique words and most common word."""
     words = filterText(text)
     # Create a frequency dictionary
     fdist = FreqDist()
@@ -30,9 +32,8 @@ def getWordFrequency(text):
     filteredValues = []
 
     for key, value in fdist.items():
-        if value > 3:
+        if value > 1:
             filteredKeys.append(key)
             filteredValues.append(value)
 
-    # Return frequency dictionary and total number of outcomes where count > 0 and most common word
     return filteredKeys, filteredValues, fdist.B(), fdist.max()

@@ -20,7 +20,7 @@ def results():
     url = request.args['url']
     authors, date, text, summary = getAnalysisResults(url)
     keys, values, total_outcome, greatest_outcome = getWordFrequency(text)
-    return render_template('results.html', url = url, authors = authors, date = date, text = text, summary = summary, keys = keys, values = values, total_outcome = total_outcome, greatest_outcome = greatest_outcome)
+    return render_template('results.html', url = url, authors = authors, date = date, summary = summary, keys = keys, values = values, total_outcome = total_outcome, greatest_outcome = greatest_outcome)
 
 if __name__ == '__main__':
     app.run(debug=True)
