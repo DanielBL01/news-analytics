@@ -18,9 +18,9 @@ def index():
 @app.route('/results')
 def results():
     url = request.args['url']
-    authors, date, text, keywords, summary = getAnalysisResults(url)
-    freqDist, total_outcome, greatest_outcome = getWordFrequency(text)
-    return render_template('results.html', url = url, authors = authors, date = date, text = text, keywords = keywords, summary = summary, freqDist = freqDist, total_outcome = total_outcome, greatest_outcome = greatest_outcome)
+    authors, date, text, summary = getAnalysisResults(url)
+    keys, values, total_outcome, greatest_outcome = getWordFrequency(text)
+    return render_template('results.html', url = url, authors = authors, date = date, text = text, summary = summary, keys = keys, values = values, total_outcome = total_outcome, greatest_outcome = greatest_outcome)
 
 if __name__ == '__main__':
     app.run(debug=True)

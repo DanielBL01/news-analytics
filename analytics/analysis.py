@@ -8,4 +8,4 @@ def getAnalysisResults(url):
     article.parse()
     article.nlp()
 
-    return article.authors, article.publish_date, article.text, article.keywords, article.summary
+    return article.authors, article.publish_date, article.text, article.summary

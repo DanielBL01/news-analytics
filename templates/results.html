@@ -15,19 +15,33 @@
 <body>
     <div>
         <h1>Results of the analysis...</h1>
-        <div>Your URL: {{ url }}</div>
-        <div>Your Authors: {{ authors }}</div>
-        <div>Your Publish Date: {{ date }}</div>
-        <div>Your Text: {{ text }}</div>
-        <div>Your Keywords: {{ keywords }}</div>
-        <div>Your Summary: {{ summary }}</div>
-        <div>Your NLTK Freq Dist: {{ freqDist }}</div>
-        <div>Your NLTK Total Outcome: {{ total_outcome }}</div>
-        <div>Your NLTK Greatest Outcome: {{ greatest_outcome }}</div>
+        <h2>Overview</h2>
+        <div>Site URL: {{ url }}</div>
+        <div>Site Authors: {{ authors }}</div>
+        <div>Publish Date: {{ date }}</div>
+        <h2>Text Summarization</h2>
+        <div>Original: {{ text }}</div>
+        <div>Summary: {{ summary }}</div>
+        <h2>Word Frequency</h2>
+        <div>Most Common Word: {{ greatest_outcome }}</div>
+        <div>Total Number of Unique Words: {{ total_outcome }}</div>
+        <div>Word Frequency Table</div>
+        <ul>
+            {% for key, value in freqDist %}
+            <li>
+                {{ key }}, {{ value }}
+            </li>
+            {% endfor %}
+        </ul>
     </div>
     <div>
-        <canvas id="myChart" width="400" height="400"></canvas>
-        <script src="{{ url_for('static', filename='js/charts.js')}}" type="text/javascript"></script>
+        <canvas id="wordFreqBarChart" width="200" height="200"></canvas>
+        <script src="{{ url_for('static', filename='js/wordFreqBarChart.js')}}" type="text/javascript"></script>
+        <script>
+            var keys = JSON.parse('{{ keys|tojson|safe}}');
+            var values = JSON.parse('{{ values|tojson|safe}}');
+            buildWordFreqBarChart(keys, values);
+        </script>
     </div>
 </body>
 

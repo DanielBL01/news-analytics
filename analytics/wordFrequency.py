@@ -25,6 +25,14 @@ def getWordFrequency(text):
     fdist = FreqDist()
     for word in words:
         fdist[word] += 1
-    
-    # Return frequency dictionary, total number of values with counts > 0 and sample with greatest number of counts
-    return fdist, fdist.B(), fdist.max()
+
+    filteredKeys = []
+    filteredValues = []
+
+    for key, value in fdist.items():
+        if value > 3:
+            filteredKeys.append(key)
+            filteredValues.append(value)
+
+    # Return frequency dictionary and total number of outcomes where count > 0 and most common word
+    return filteredKeys, filteredValues, fdist.B(), fdist.max()
