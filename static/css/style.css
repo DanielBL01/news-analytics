@@ -3,3 +3,59 @@
 html, body {
     font-family: 'Montserrat', sans-serif;
 }
+
+.header {
+    text-align: center;
+}
+
+.url_input {
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    margin: auto;
+    height: 30px;
+    margin-top: 150px;
+    margin-bottom: 25px;
+    width: 50%;
+    border-style: solid;
+    border-color: lightgray;
+    border-radius: 10px;
+    outline: none;
+}
+
+.url_submit{
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    margin: auto;
+    padding: 15px 30px 15px 30px;
+    cursor: pointer;
+    border-style: solid;
+    border-color: #2b87ff;
+    background-color: #2b87ff;
+    color: white;
+    border-radius: 10px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.grid-item {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.error {
+    text-align: center;
+}
+
+.return {
+    font-family: 'Montserrat', sans-serif;
+    padding: 15px 30px 15px 30px;
+    cursor: pointer;
+    border-style: solid;
+    border-color: #2b87ff;
+    background-color: #2b87ff;
+    color: white;
+    border-radius: 10px;
+}

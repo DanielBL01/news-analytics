@@ -17,10 +17,13 @@ def index():
 
 @app.route('/results')
 def results():
-    url = request.args['url']
-    authors, date, text, summary = getAnalysisResults(url)
-    keys, values, total_outcome, greatest_outcome = getWordFrequency(text)
-    return render_template('results.html', url = url, authors = authors, date = date, summary = summary, keys = keys, values = values, total_outcome = total_outcome, greatest_outcome = greatest_outcome)
-
+    try:
+        url = request.args['url']
+        authors, date, text, summary = getAnalysisResults(url)
+        keys, values, total_outcome, greatest_outcome = getWordFrequency(text)
+        return render_template('results.html', url = url, authors = authors, date = date, summary = summary, keys = keys, values = values, total_outcome = total_outcome, greatest_outcome = greatest_outcome)
+    except:
+        return render_template('error.html')
+        
 if __name__ == '__main__':
     app.run(debug=True)

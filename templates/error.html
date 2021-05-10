@@ -12,17 +12,14 @@
 </head>
 
 <body>
-    <h1 class="header">News Analytics</h1>
-    <h4 class="header">
-        Enter a url for a news article and News Analytics will perform text summarization and fact check the content using Machine Learning.
-    </h4>
-    <h4 class="header">
-        News Analytics also displays data visualizations of word frequencies in the article.
-    </h4>
-    <form action="{{ url_for('results') }}">
-        <input class="url_input" name='url'>
-        <input class="url_submit" type='submit' value='Submit'>
-    </form>
+    <div class="error">
+        <h1>Sorry.</h1>
+        <h4>Looks like News Analytics failed to parse the article content.</h4>
+        <h4>Head back to the main page.</h4>
+        <form action="{{ url_for('index') }}">
+            <button class="return">GO BACK</button>
+        </form>
+    </div>
 </body>
 
 </html>
