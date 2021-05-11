@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from analytics.analysis import getAnalysisResults
-from analytics.wordFrequency import getWordFrequency
+from analytics.sentiment import sentimentAnalysis
+from analytics.frequency import getWordFrequency
 
 app = Flask(__name__)
 app.secret_key = 'YOUR SECRET KEY'
@@ -19,9 +20,17 @@ def index():
 def results():
     try:
         url = request.args['url']
-        authors, date, text, summary = getAnalysisResults(url)
-        keys, values, total_outcome, greatest_outcome = getWordFrequency(text)
-        return render_template('results.html', url = url, authors = authors, date = date, summary = summary, keys = keys, values = values, total_outcome = total_outcome, greatest_outcome = greatest_outcome)
+        text, summary = getAnalysisResults(url)
+        sentiment = sentimentAnalysis(text)
+        words, most_common = getWordFrequency(text)
+
+        display = ''
+        for word in words:
+            if word != words[-1]:
+                display = display + word + ', '
+            else:
+                display = display + word
+        return render_template('results.html', summary = summary, sentiment = sentiment, display = display, most_common = most_common)
     except:
         return render_template('error.html')
         

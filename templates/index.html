@@ -8,17 +8,17 @@
     <link href="{{ url_for('static', filename='css/style.css')}}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js')}}" type="text/javascript"></script>
-    <title>Index</title>
+    <title>News Analytics - Homepage</title>
 </head>
 
 <body>
-    <h1 class="header">News Analytics</h1>
-    <h4 class="header">
+    <div class="header">News Analytics</div>
+    <div class="subheader">
         Enter a url for a news article and News Analytics will perform text summarization and fact check the content using Machine Learning.
-    </h4>
-    <h4 class="header">
+    </div>
+    <div class="subheader">
         News Analytics also displays data visualizations of word frequencies in the article.
-    </h4>
+    </div>
     <form action="{{ url_for('results') }}">
         <input class="url_input" name='url'>
         <input class="url_submit" type='submit' value='Submit'>

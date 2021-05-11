@@ -6,6 +6,23 @@ html, body {
 
 .header {
     text-align: center;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.subheader {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+	left: 0;
+	right: 0;
+    margin: auto;
+    max-width: 1024px;
 }
 
 .url_input {
@@ -18,7 +35,7 @@ html, body {
     width: 50%;
     border-style: solid;
     border-color: lightgray;
-    border-radius: 10px;
+    border-radius: 20px;
     outline: none;
 }
 
@@ -32,17 +49,7 @@ html, body {
     border-color: #2b87ff;
     background-color: #2b87ff;
     color: white;
-    border-radius: 10px;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: auto auto auto;
-}
-
-.grid-item {
-    margin-left: 10px;
-    margin-right: 10px;
+    border-radius: 20px;
 }
 
 .error {
@@ -57,5 +64,32 @@ html, body {
     border-color: #2b87ff;
     background-color: #2b87ff;
     color: white;
-    border-radius: 10px;
+    border-radius: 20px;
+}
+
+.result_header {
+    position: relative;
+}
+
+.title {
+    text-align: center;
+}
+
+.return.inline {
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+
+.sentiment {
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 50px;
+}
+
+.sections {
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 10px;
 }

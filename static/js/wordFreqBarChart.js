@@ -1,7 +1,7 @@
-/* ChartJS Code Goes Here */
-
 function buildWordFreqBarChart(labels, values) {
     var data = {
+        responsive: true,
+        maintainAspectRatio: false,
         labels: labels,
         datasets: [{
             label: 'Frequency of Words',
