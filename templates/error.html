@@ -12,10 +12,14 @@
 </head>
 
 <body>
-    <div class="error">
-        <h1>Sorry.</h1>
-        <h4>Looks like News Analytics failed to parse the article content.</h4>
-        <h4>Head back to the main page.</h4>
+    <div class="header">Sorry.</div>
+    <div class="subheader">
+        Looks like News Analytics failed to parse the article content.
+    </div>
+    <div class="subheader">
+        Head back to the main page.
+    </div>
+    <div class="subheader">
         <form action="{{ url_for('index') }}">
             <button class="return">Go Back</button>
         </form>
