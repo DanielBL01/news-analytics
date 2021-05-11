@@ -9,7 +9,6 @@ def sentimentAnalysis(text):
     for sentence in sent_text:
         num_sent +=1
         compound = sia.polarity_scores(sentence)['compound']
-        print(compound)
         net_sentiment += compound
     
     net_sentiment = net_sentiment / num_sent
