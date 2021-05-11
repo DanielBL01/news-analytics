@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from analytics.analysis import getAnalysisResults
@@ -5,8 +6,8 @@ from analytics.sentiment import sentimentAnalysis
 from analytics.frequency import getWordFrequency
 
 app = Flask(__name__)
-app.secret_key = 'YOUR SECRET KEY'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'YOUR DATABASE URI'
+app.secret_key = os.environ.get('SECRET_KEY')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 db = SQLAlchemy(app)
 
 @app.route('/', methods=['GET', 'POST'])
@@ -35,4 +36,4 @@ def results():
         return render_template('error.html')
         
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

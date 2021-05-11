@@ -13,6 +13,7 @@ nltk = "*"
 psycopg2 = "*"
 sqlalchemy = "*"
 flask-sqlalchemy = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.8"
